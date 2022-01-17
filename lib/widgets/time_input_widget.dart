@@ -4,11 +4,15 @@ import 'package:pomodoro/widgets/buttons/elevated_button_widget.dart';
 class TimeInputWidget extends StatelessWidget {
   final String title;
   final int value;
+  final VoidCallback? increment;
+  final VoidCallback? decrement;
 
   const TimeInputWidget({
     Key? key,
     required this.title,
     required this.value,
+    this.increment,
+    this.decrement,
   }) : super(key: key);
 
   @override
@@ -25,7 +29,7 @@ class TimeInputWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButtonWidget(
-              onPressed: () {},
+              onPressed: decrement,
               icon: Icons.arrow_downward,
             ),
             Text(
@@ -33,7 +37,7 @@ class TimeInputWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 18),
             ),
             ElevatedButtonWidget(
-              onPressed: () {},
+              onPressed: increment,
               icon: Icons.arrow_upward,
             ),
           ],
