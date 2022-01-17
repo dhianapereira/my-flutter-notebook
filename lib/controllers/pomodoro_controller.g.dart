@@ -61,18 +61,18 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
     });
   }
 
-  final _$workingTimeAtom = Atom(name: '_PomodoroControllerBase.workingTime');
+  final _$workTimeAtom = Atom(name: '_PomodoroControllerBase.workTime');
 
   @override
-  int get workingTime {
-    _$workingTimeAtom.reportRead();
-    return super.workingTime;
+  int get workTime {
+    _$workTimeAtom.reportRead();
+    return super.workTime;
   }
 
   @override
-  set workingTime(int value) {
-    _$workingTimeAtom.reportWrite(value, super.workingTime, () {
-      super.workingTime = value;
+  set workTime(int value) {
+    _$workTimeAtom.reportWrite(value, super.workTime, () {
+      super.workTime = value;
     });
   }
 
@@ -143,22 +143,22 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
   }
 
   @override
-  void incrementWorkingTime() {
+  void incrementWorkTime() {
     final _$actionInfo = _$_PomodoroControllerBaseActionController.startAction(
-        name: '_PomodoroControllerBase.incrementWorkingTime');
+        name: '_PomodoroControllerBase.incrementWorkTime');
     try {
-      return super.incrementWorkingTime();
+      return super.incrementWorkTime();
     } finally {
       _$_PomodoroControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void decrementWorkingTime() {
+  void decrementWorkTime() {
     final _$actionInfo = _$_PomodoroControllerBaseActionController.startAction(
-        name: '_PomodoroControllerBase.decrementWorkingTime');
+        name: '_PomodoroControllerBase.decrementWorkTime');
     try {
-      return super.decrementWorkingTime();
+      return super.decrementWorkTime();
     } finally {
       _$_PomodoroControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -192,7 +192,7 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
 status: ${status},
 minutes: ${minutes},
 seconds: ${seconds},
-workingTime: ${workingTime},
+workTime: ${workTime},
 restTime: ${restTime},
 intervalType: ${intervalType},
 time: ${time}

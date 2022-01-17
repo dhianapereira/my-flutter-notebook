@@ -34,19 +34,27 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     TimeInputWidget(
                       title: "Trabalho",
-                      value: controller.workingTime,
-                      increment: controller.incrementWorkingTime,
-                      decrement: controller.workingTime == 0
+                      value: controller.workTime,
+                      increment: controller.wasStarted && controller.isResting
                           ? null
-                          : controller.decrementWorkingTime,
+                          : controller.incrementWorkTime,
+                      decrement:
+                          controller.wasStarted && controller.isWorking ||
+                                  controller.workTime == 0
+                              ? null
+                              : controller.decrementWorkTime,
                     ),
                     TimeInputWidget(
                       title: "Descanso",
                       value: controller.restTime,
-                      increment: controller.incrementRestTime,
-                      decrement: controller.restTime == 0
+                      increment: controller.wasStarted && controller.isResting
                           ? null
-                          : controller.decrementRestTime,
+                          : controller.incrementRestTime,
+                      decrement:
+                          controller.wasStarted && controller.isResting ||
+                                  controller.restTime == 0
+                              ? null
+                              : controller.decrementRestTime,
                     ),
                   ],
                 ),

@@ -20,7 +20,7 @@ abstract class _PomodoroControllerBase with Store {
   int seconds = 0;
 
   @observable
-  int workingTime = 2;
+  int workTime = 2;
 
   @observable
   int restTime = 1;
@@ -67,19 +67,46 @@ abstract class _PomodoroControllerBase with Store {
   @action
   void restart() {
     status = Status.initial;
+
+    minutes = isWorking ? workTime : restTime;
+    seconds = 0;
   }
 
   @action
-  void incrementWorkingTime() => workingTime++;
+  void incrementWorkTime() {
+    workTime++;
+
+    if (isWorking) {
+      restart();
+    }
+  }
 
   @action
-  void decrementWorkingTime() => workingTime--;
+  void decrementWorkTime() {
+    workTime--;
+
+    if (isWorking) {
+      restart();
+    }
+  }
 
   @action
-  void incrementRestTime() => restTime++;
+  void incrementRestTime() {
+    restTime++;
+
+    if (isResting) {
+      restart();
+    }
+  }
 
   @action
-  void decrementRestTime() => restTime--;
+  void decrementRestTime() {
+    restTime--;
+
+    if (isResting) {
+      restart();
+    }
+  }
 
   void _changeIntervalType() {
     if (isWorking) {
@@ -87,7 +114,7 @@ abstract class _PomodoroControllerBase with Store {
       minutes = restTime;
     } else {
       intervalType = IntervalType.work;
-      minutes = workingTime;
+      minutes = workTime;
     }
 
     seconds = 0;
