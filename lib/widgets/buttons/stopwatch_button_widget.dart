@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StopwatchButtonWidget extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String title;
   final IconData icon;
   final double height;
@@ -21,15 +21,16 @@ class StopwatchButtonWidget extends StatelessWidget {
     return SizedBox(
       height: height,
       width: width,
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.black,
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-            textStyle: const TextStyle(fontSize: 25),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: Colors.black,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
           ),
-          onPressed: onPressed,
+        ),
+        onPressed: onPressed,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -37,8 +38,11 @@ class StopwatchButtonWidget extends StatelessWidget {
                 icon,
                 size: 35,
               ),
-              const SizedBox(width: 5),
-              Text(title),
+              const SizedBox(width: 10),
+              Text(
+                title,
+                style: const TextStyle(fontSize: 30),
+              ),
             ],
           ),
         ),

@@ -15,11 +15,7 @@ class ElevatedButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       child: Icon(icon, color: Colors.white),
-      style: ElevatedButton.styleFrom(
-        shape: const CircleBorder(),
-        padding: const EdgeInsets.all(15),
-        primary: Colors.red,
-      ),
+      style: Theme.of(context).elevatedButtonTheme.style,
     );
   }
 }

@@ -18,17 +18,18 @@ class _HomePageState extends State<HomePage> {
     final controller = GetIt.I.get<PomodoroController>();
 
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Expanded(
-            child: StopwatchWidget(),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40),
-            child: Observer(
-              builder: (_) {
-                return Row(
+      body: Observer(
+        builder: (_) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Expanded(
+                child: StopwatchWidget(),
+              ),
+              Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 40),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TimeInputWidget(
@@ -48,11 +49,11 @@ class _HomePageState extends State<HomePage> {
                           : controller.decrementRestTime,
                     ),
                   ],
-                );
-              },
-            ),
-          ),
-        ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
