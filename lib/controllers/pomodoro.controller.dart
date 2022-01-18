@@ -13,16 +13,16 @@ abstract class _PomodoroControllerBase with Store {
   Status status = Status.initial;
 
   @observable
-  int minutes = 2;
+  int minutes = 25;
 
   @observable
   int seconds = 0;
 
   @observable
-  int workTime = 2;
+  int workTime = 25;
 
   @observable
-  int restTime = 1;
+  int restTime = 5;
 
   @observable
   IntervalType intervalType = IntervalType.work;
@@ -40,11 +40,17 @@ abstract class _PomodoroControllerBase with Store {
 
   bool get wasStopped => status == Status.stopped;
 
+  @computed
+  bool get workNotEnabled => status != Status.initial && isWorking;
+
+  @computed
+  bool get restNotEnabled => status != Status.initial && isResting;
+
   @action
   void start() {
     status = Status.started;
 
-    stopwatch = Timer.periodic(const Duration(milliseconds: 50), (timer) {
+    stopwatch = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (minutes == 0 && seconds == 0) {
         _changeIntervalType();
       } else if (seconds == 0) {
@@ -67,6 +73,8 @@ abstract class _PomodoroControllerBase with Store {
   void restart() {
     status = Status.initial;
 
+    stopwatch?.cancel();
+
     minutes = isWorking ? workTime : restTime;
     seconds = 0;
   }
@@ -82,10 +90,12 @@ abstract class _PomodoroControllerBase with Store {
 
   @action
   void decrementWorkTime() {
-    workTime--;
+    if (workTime > 1) {
+      workTime--;
 
-    if (isWorking) {
-      restart();
+      if (isWorking) {
+        restart();
+      }
     }
   }
 
@@ -100,10 +110,12 @@ abstract class _PomodoroControllerBase with Store {
 
   @action
   void decrementRestTime() {
-    restTime--;
+    if (restTime > 1) {
+      restTime--;
 
-    if (isResting) {
-      restart();
+      if (isResting) {
+        restart();
+      }
     }
   }
 

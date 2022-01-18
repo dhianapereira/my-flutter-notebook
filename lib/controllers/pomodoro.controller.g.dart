@@ -15,6 +15,20 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
   String get time => (_$timeComputed ??= Computed<String>(() => super.time,
           name: '_PomodoroControllerBase.time'))
       .value;
+  Computed<bool>? _$workNotEnabledComputed;
+
+  @override
+  bool get workNotEnabled =>
+      (_$workNotEnabledComputed ??= Computed<bool>(() => super.workNotEnabled,
+              name: '_PomodoroControllerBase.workNotEnabled'))
+          .value;
+  Computed<bool>? _$restNotEnabledComputed;
+
+  @override
+  bool get restNotEnabled =>
+      (_$restNotEnabledComputed ??= Computed<bool>(() => super.restNotEnabled,
+              name: '_PomodoroControllerBase.restNotEnabled'))
+          .value;
 
   final _$statusAtom = Atom(name: '_PomodoroControllerBase.status');
 
@@ -195,7 +209,9 @@ seconds: ${seconds},
 workTime: ${workTime},
 restTime: ${restTime},
 intervalType: ${intervalType},
-time: ${time}
+time: ${time},
+workNotEnabled: ${workNotEnabled},
+restNotEnabled: ${restNotEnabled}
     ''';
   }
 }
