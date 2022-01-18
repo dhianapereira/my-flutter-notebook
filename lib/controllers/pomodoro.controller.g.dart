@@ -15,76 +15,45 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
   String get time => (_$timeComputed ??= Computed<String>(() => super.time,
           name: '_PomodoroControllerBase.time'))
       .value;
-  Computed<bool>? _$workNotEnabledComputed;
+  Computed<bool>? _$incrementWorkNotEnabledComputed;
 
   @override
-  bool get workNotEnabled =>
-      (_$workNotEnabledComputed ??= Computed<bool>(() => super.workNotEnabled,
-              name: '_PomodoroControllerBase.workNotEnabled'))
-          .value;
-  Computed<bool>? _$restNotEnabledComputed;
+  bool get incrementWorkNotEnabled => (_$incrementWorkNotEnabledComputed ??=
+          Computed<bool>(() => super.incrementWorkNotEnabled,
+              name: '_PomodoroControllerBase.incrementWorkNotEnabled'))
+      .value;
+  Computed<bool>? _$decrementWorkNotEnabledComputed;
 
   @override
-  bool get restNotEnabled =>
-      (_$restNotEnabledComputed ??= Computed<bool>(() => super.restNotEnabled,
-              name: '_PomodoroControllerBase.restNotEnabled'))
-          .value;
-
-  final _$statusAtom = Atom(name: '_PomodoroControllerBase.status');
-
-  @override
-  Status get status {
-    _$statusAtom.reportRead();
-    return super.status;
-  }
+  bool get decrementWorkNotEnabled => (_$decrementWorkNotEnabledComputed ??=
+          Computed<bool>(() => super.decrementWorkNotEnabled,
+              name: '_PomodoroControllerBase.decrementWorkNotEnabled'))
+      .value;
+  Computed<bool>? _$incrementRestNotEnabledComputed;
 
   @override
-  set status(Status value) {
-    _$statusAtom.reportWrite(value, super.status, () {
-      super.status = value;
-    });
-  }
-
-  final _$minutesAtom = Atom(name: '_PomodoroControllerBase.minutes');
+  bool get incrementRestNotEnabled => (_$incrementRestNotEnabledComputed ??=
+          Computed<bool>(() => super.incrementRestNotEnabled,
+              name: '_PomodoroControllerBase.incrementRestNotEnabled'))
+      .value;
+  Computed<bool>? _$decrementRestNotEnabledComputed;
 
   @override
-  int get minutes {
-    _$minutesAtom.reportRead();
-    return super.minutes;
-  }
-
-  @override
-  set minutes(int value) {
-    _$minutesAtom.reportWrite(value, super.minutes, () {
-      super.minutes = value;
-    });
-  }
-
-  final _$secondsAtom = Atom(name: '_PomodoroControllerBase.seconds');
-
-  @override
-  int get seconds {
-    _$secondsAtom.reportRead();
-    return super.seconds;
-  }
-
-  @override
-  set seconds(int value) {
-    _$secondsAtom.reportWrite(value, super.seconds, () {
-      super.seconds = value;
-    });
-  }
+  bool get decrementRestNotEnabled => (_$decrementRestNotEnabledComputed ??=
+          Computed<bool>(() => super.decrementRestNotEnabled,
+              name: '_PomodoroControllerBase.decrementRestNotEnabled'))
+      .value;
 
   final _$workTimeAtom = Atom(name: '_PomodoroControllerBase.workTime');
 
   @override
-  int get workTime {
+  PomodoroModel get workTime {
     _$workTimeAtom.reportRead();
     return super.workTime;
   }
 
   @override
-  set workTime(int value) {
+  set workTime(PomodoroModel value) {
     _$workTimeAtom.reportWrite(value, super.workTime, () {
       super.workTime = value;
     });
@@ -93,15 +62,30 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
   final _$restTimeAtom = Atom(name: '_PomodoroControllerBase.restTime');
 
   @override
-  int get restTime {
+  PomodoroModel get restTime {
     _$restTimeAtom.reportRead();
     return super.restTime;
   }
 
   @override
-  set restTime(int value) {
+  set restTime(PomodoroModel value) {
     _$restTimeAtom.reportWrite(value, super.restTime, () {
       super.restTime = value;
+    });
+  }
+
+  final _$durationAtom = Atom(name: '_PomodoroControllerBase.duration');
+
+  @override
+  Duration get duration {
+    _$durationAtom.reportRead();
+    return super.duration;
+  }
+
+  @override
+  set duration(Duration value) {
+    _$durationAtom.reportWrite(value, super.duration, () {
+      super.duration = value;
     });
   }
 
@@ -203,15 +187,15 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
   @override
   String toString() {
     return '''
-status: ${status},
-minutes: ${minutes},
-seconds: ${seconds},
 workTime: ${workTime},
 restTime: ${restTime},
+duration: ${duration},
 intervalType: ${intervalType},
 time: ${time},
-workNotEnabled: ${workNotEnabled},
-restNotEnabled: ${restNotEnabled}
+incrementWorkNotEnabled: ${incrementWorkNotEnabled},
+decrementWorkNotEnabled: ${decrementWorkNotEnabled},
+incrementRestNotEnabled: ${incrementRestNotEnabled},
+decrementRestNotEnabled: ${decrementRestNotEnabled}
     ''';
   }
 }
