@@ -1,9 +1,8 @@
 import 'dart:async';
-
 import 'package:mobx/mobx.dart';
 import 'package:pomodoro/core/interval_type_enum.dart';
 import 'package:pomodoro/core/status_enum.dart';
-part 'pomodoro_controller.g.dart';
+part 'pomodoro.controller.g.dart';
 
 class PomodoroController = _PomodoroControllerBase with _$PomodoroController;
 

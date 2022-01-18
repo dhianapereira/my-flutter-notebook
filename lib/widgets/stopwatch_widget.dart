@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pomodoro/controllers/pomodoro_controller.dart';
+import 'package:pomodoro/controllers/pomodoro.controller.dart';
 import 'package:pomodoro/widgets/buttons/stopwatch_button_widget.dart';
 
 class StopwatchWidget extends StatelessWidget {

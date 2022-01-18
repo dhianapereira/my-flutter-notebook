@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pomodoro_controller.dart';
+part of 'pomodoro.controller.dart';
 
 // **************************************************************************
 // StoreGenerator
