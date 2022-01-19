@@ -10,6 +10,10 @@
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=FF0000&labelColor=000000">
 </p>
 
+## Demo
+
+<img src=".github/pomodoro.gif"/>
+
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
