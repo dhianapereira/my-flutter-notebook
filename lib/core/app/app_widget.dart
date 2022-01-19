@@ -11,7 +11,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Observer(
-      builder: (context) {
+      builder: (_) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'pomodoro app',

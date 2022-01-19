@@ -5,31 +5,26 @@ import 'package:pomodoro/controllers/pomodoro.controller.dart';
 import 'package:pomodoro/widgets/stopwatch_widget.dart';
 import 'package:pomodoro/widgets/time_input_widget.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final controller = GetIt.I.get<PomodoroController>();
 
     return Scaffold(
-      body: Observer(
-        builder: (_) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Expanded(
-                child: StopwatchWidget(),
-              ),
-              Container(
-                color: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 40),
-                child: Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Expanded(
+            child: StopwatchWidget(),
+          ),
+          Container(
+            color: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 40),
+            child: Observer(
+              builder: (_) {
+                return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TimeInputWidget(
@@ -53,11 +48,11 @@ class _HomePageState extends State<HomePage> {
                           : controller.decrementRestTime,
                     ),
                   ],
-                ),
-              ),
-            ],
-          );
-        },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
