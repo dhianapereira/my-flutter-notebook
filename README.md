@@ -12,7 +12,9 @@
 
 ## Demo
 
-<img src=".github/pomodoro.gif"/>
+<p align="center">
+  <img src=".github/pomodoro.gif"/>  
+</p>
 
 ## ✨ Tecnologias
 
