@@ -18,9 +18,8 @@ class AppThemes {
       scaffoldBackgroundColor: color,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          shape: const CircleBorder(),
+          shape: const CircleBorder(), backgroundColor: color,
           padding: const EdgeInsets.all(15),
-          primary: color,
         ),
       ),
     );

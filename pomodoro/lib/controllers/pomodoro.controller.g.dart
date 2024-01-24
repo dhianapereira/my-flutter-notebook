@@ -6,7 +6,7 @@ part of 'pomodoro.controller.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$PomodoroController on _PomodoroControllerBase, Store {
   Computed<String>? _$timeComputed;
@@ -44,7 +44,8 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
               name: '_PomodoroControllerBase.decrementRestNotEnabled'))
       .value;
 
-  final _$workTimeAtom = Atom(name: '_PomodoroControllerBase.workTime');
+  late final _$workTimeAtom =
+      Atom(name: '_PomodoroControllerBase.workTime', context: context);
 
   @override
   PomodoroModel get workTime {
@@ -59,7 +60,8 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
     });
   }
 
-  final _$restTimeAtom = Atom(name: '_PomodoroControllerBase.restTime');
+  late final _$restTimeAtom =
+      Atom(name: '_PomodoroControllerBase.restTime', context: context);
 
   @override
   PomodoroModel get restTime {
@@ -74,7 +76,8 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
     });
   }
 
-  final _$durationAtom = Atom(name: '_PomodoroControllerBase.duration');
+  late final _$durationAtom =
+      Atom(name: '_PomodoroControllerBase.duration', context: context);
 
   @override
   Duration get duration {
@@ -89,7 +92,8 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
     });
   }
 
-  final _$intervalTypeAtom = Atom(name: '_PomodoroControllerBase.intervalType');
+  late final _$intervalTypeAtom =
+      Atom(name: '_PomodoroControllerBase.intervalType', context: context);
 
   @override
   IntervalType get intervalType {
@@ -104,8 +108,8 @@ mixin _$PomodoroController on _PomodoroControllerBase, Store {
     });
   }
 
-  final _$_PomodoroControllerBaseActionController =
-      ActionController(name: '_PomodoroControllerBase');
+  late final _$_PomodoroControllerBaseActionController =
+      ActionController(name: '_PomodoroControllerBase', context: context);
 
   @override
   void start() {
