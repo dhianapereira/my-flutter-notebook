@@ -1,0 +1,17 @@
+const double DEFAULT_MARGIN = 28.8;
+
+const double CONTAINER_DEFAULT_SIZE = 57.6;
+
+const double PADDING_TAB_BAR = 14.4;
+
+const double DEFAULT_BORDER_RADIUS = 9.6;
+
+const double RECOMMENDATIONS_SECTION_WIDTH = 333.6;
+
+const double RECOMMENDATIONS_SECTION_HEIGHT = 218.4;
+
+const double BEACHES_SECTION_HEIGHT = 124.8;
+
+const double BEACHES_SECTION_WIDTH = 188.4;
+
+const double IMAGE_BLUR = 19.2;
